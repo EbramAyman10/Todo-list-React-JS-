@@ -65,7 +65,7 @@ export default function Todo() {
 
       <div className="mt-10 relative">
         <input
-          className="rounded-xl bg-white shadow-md w-150 py-5 pl-4 border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="rounded-xl bg-white shadow-md w-150 py-5 pl-4 border border-slate-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
           type="text"
           placeholder="Add Your Task"
           value={input}
@@ -75,7 +75,7 @@ export default function Todo() {
           }}
         />
         <button
-          className="absolute top-3 right-5 cursor-pointer hover:bg-blue-700 bg-blue-600 rounded-lg py-2 px-4 text-white font-bold"
+          className="absolute top-3 right-5 cursor-pointer hover:bg-indigo-700 bg-indigo-600 rounded-lg py-2 px-4 text-white font-bold"
           onClick={addTask}
         >
           Add
@@ -85,19 +85,19 @@ export default function Todo() {
       <div className="mt-10 shadow-md bg-white p-1 rounded-lg">
         <ul className="flex justify-center items-center gap-5 w-full">
           <li
-            className={`${filter === "all" ? "bg-blue-600 text-white" : " hover:bg-slate-100"} px-15 py-2 rounded-lg hover:bg-blue-500 cursor-pointer`}
+            className={`${filter === "all" ? "bg-indigo-600 text-white" : " hover:bg-slate-100"} px-15 py-2 rounded-lg hover:bg-indigo-500 cursor-pointer`}
             onClick={() => setFilter("all")}
           >
             All
           </li>
           <li
-            className={`${filter === "active" ? "bg-blue-600 text-white" : "hover:bg-slate-100"} px-15 py-2 rounded-lg hover:bg-blue-500 cursor-pointer`}
+            className={`${filter === "active" ? "bg-indigo-600 text-white" : "hover:bg-slate-100"} px-15 py-2 rounded-lg hover:bg-indigo-500 cursor-pointer`}
             onClick={() => setFilter("active")}
           >
             Active
           </li>
           <li
-            className={`${filter === "completed" ? "bg-blue-600 text-white" : "hover:bg-slate-100"} px-15 py-2 rounded-lg hover:bg-blue-500 cursor-pointer`}
+            className={`${filter === "completed" ? "bg-indigo-600 text-white" : "hover:bg-slate-100"} px-15 py-2 rounded-lg hover:bg-indigo-500 cursor-pointer`}
             onClick={() => setFilter("completed")}
           >
             Completed
@@ -117,19 +117,19 @@ export default function Todo() {
           return (
             <div
               key={task.id}
-              className={`${task.completed ? "bg-blue-50" : "bg-white"} shadow-md rounded-xl p-5 w-full mt-5 flex items-center justify-between`}
+              className={`${task.completed ? "bg-indigo-50" : "bg-white"} shadow-md rounded-xl p-5 w-full mt-5 flex items-center justify-between transition-colors duration-300`}
             >
               <div className="flex items-center">
                 <input
                   type="checkbox"
-                  className="h-5 w-5 accent-blue-600"
+                  className="h-5 w-5 accent-indigo-600"
                   checked={task.completed}
                   onChange={() => toggleCompleted(task.id)}
                 />
                 {editID === task.id ? (
                   <input
                     type="text"
-                    className="rounded-xl w-85 bg-white ml-4 py-3 pl-4 border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="rounded-xl w-85 bg-white ml-4 py-3 pl-4 border border-slate-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                     value={editValue}
                     onChange={(e) => setEditValue(e.target.value)}
                     onKeyDown={(e) => {
@@ -148,14 +148,14 @@ export default function Todo() {
               <div className="flex items-center gap-3">
                 {editID === task.id ? (
                   <button
-                    className="cursor-pointer hover:bg-blue-700 bg-blue-600 rounded-lg py-2 px-4 text-white font-bold"
+                    className="cursor-pointer hover:bg-indigo-700 bg-indigo-600 rounded-lg py-2 px-4 text-white font-bold"
                     onClick={saveEdit}
                   >
                     Save
                   </button>
                 ) : (
                   <button
-                    className="cursor-pointer hover:bg-blue-700 bg-blue-600 rounded-lg py-2 px-4 text-white font-bold"
+                    className="cursor-pointer hover:bg-indigo-700 bg-indigo-600 rounded-lg py-2 px-4 text-white font-bold"
                     onClick={() => {
                       setEditId(task.id);
                       setEditValue(task.name);
