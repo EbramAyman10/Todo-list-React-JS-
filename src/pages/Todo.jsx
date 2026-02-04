@@ -67,7 +67,7 @@ export default function Todo() {
         <input
           className="rounded-xl bg-white shadow-md w-150 py-5 pl-4 border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
           type="text"
-          placeholder="What need to be done?"
+          placeholder="Add Your Task"
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={(e) => {
@@ -110,8 +110,7 @@ export default function Todo() {
 
       {filterdTask.length == 0 ? (
         <div className="bg-white flex flex-col justify-center items-center shadow-md rounded-lg p-3 w-full h-60 mt-10">
-          <h2 className="font-bold text-lg">No Tasks Yet</h2>
-          <p className="font-light">Add Tasks above to get started</p>
+          <h2 className="font-bold text-2xl">No Tasks Yet</h2>
         </div>
       ) : (
         filterdTask.map((task) => {
