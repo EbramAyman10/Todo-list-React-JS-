@@ -1,14 +1,18 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 export default function Todo() {
   const [input, setInput] = useState("");
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState(
+    JSON.parse(localStorage.getItem("tasks")) || [],
+  );
   const [filter, setFilter] = useState("all");
   const [editID, setEditId] = useState(null);
   const [editValue, setEditValue] = useState("");
 
   const editInput = useRef(null);
-
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks]);
   const addTask = () => {
     if (!input.trim()) {
       alert("Write a Task to Add");
